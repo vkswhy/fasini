@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    token <input id="token" type="text">
+    <button onclick="connect">connect</button>
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="https://cdn.socket.io/4.2.0/socket.io.min.js" integrity="sha384-PiBR5S00EtOj2Lto9Uu81cmoyZqR57XcOna1oAuVuIEjzj0wpqDVfD0JA9eXlRsj" crossorigin="anonymous"></script>
+<script>
+    let socket;
+    const connect = () =>{
+        console.log("here")
+        const newToken = document.getElementById("token").value
+        console.log("here",newToken)
+        const token = "Bearer " + (newToken || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTVkNDU0Mzc2NzFkOGEwOTE1ZWMzZDAiLCJ1c2VybmFtZSI6ImZhcyIsIm5hbWUiOiJzYW1wbGUiLCJwYXNzd29yZCI6Ijc4NjhlZTZjNDM1NmNlM2M1MzJjOWE0ZDJjZTUxNDQzYzMzNWZmMDMxMjlhZmM1MDEzNGM0ZGFmOTA2MTg2OTgiLCJpc0Fub255bSI6ZmFsc2UsImlhdCI6MTYzNTA3NzY3Mn0.QcF1oixeoL-ovZsXYiILlLrR09vO4ut2WuFaa0EIE18")
+            socket = io("http://localhost:8000",{
+            query:{authToken:token}
+            });
+            socket.on("joined",(data)=>{
+        console.log(data)
+            })
+        socket.on("getMessage",(data)=>{
+            console.log("got message:",data)
+        })
+    }
+
+</script>
+    <!-- <script>
+        const  io = 
+    </script> -->
+</body>
+</html>

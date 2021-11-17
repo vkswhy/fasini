@@ -1,0 +1,20 @@
+POST http://localhost:8000/register HTTP/1.1
+content-type: application/json
+
+{   "username":"nikank",
+    "name": "sample",
+    "password":"Vkswhy@2000"
+}
+
+
+###
+GET http://localhost:8000 HTTP/1.1
+
+###
+POST http://localhost:8000/login HTTP/1.1
+content-type: application/json
+
+{   "username":"fas",
+    "password":"Vkswhy@2000"
+}
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2tub3dsZWRnZWQiOnRydWUsImluc2VydGVkSWQiOiI2MTc2OTZhM2I5YmRjMWE5MGIwZjU0NzgiLCJpYXQiOjE2MzUxNjE3NjR9.YOK0YiyrXB1q7eeOffU7O3Es0tfLUQranHrwJmBOD9c
